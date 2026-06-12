@@ -1,0 +1,145 @@
+.pagina-detalle {
+  min-height: 100vh;
+  padding: 3rem 0;
+}
+
+.volver-link {
+  display: inline-block;
+  color: #1a1a1a;
+  text-decoration: none;
+  margin-bottom: 2rem;
+  transition: color 0.3s ease;
+}
+
+.volver-link:hover {
+  color: #666;
+}
+
+.detalle-contenido {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.detalle-imagen {
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.detalle-imagen img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.detalle-info h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.detalle-descripcion {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+.detalle-precio {
+  margin-bottom: 2rem;
+}
+
+.precio {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.moneda {
+  color: #999;
+  font-size: 0.9rem;
+  margin: 0.5rem 0 0 0;
+}
+
+.detalle-detalles {
+  background-color: #f8f9fa;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  color: #666;
+}
+
+.selector-talles,
+.selector-colores {
+  margin-bottom: 2rem;
+}
+
+.selector-talles label,
+.selector-colores label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.talles-grid,
+.colores-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+  gap: 1rem;
+}
+
+.talle-btn,
+.color-btn {
+  padding: 10px;
+  border: 2px solid #ddd;
+  background-color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.talle-btn:hover,
+.color-btn:hover {
+  border-color: #1a1a1a;
+}
+
+.talle-btn.activo,
+.color-btn.activo {
+  background-color: #1a1a1a;
+  color: white;
+  border-color: #1a1a1a;
+}
+
+.detalle-acciones {
+  margin-top: 2rem;
+}
+
+.producto-no-encontrado {
+  text-align: center;
+  padding: 3rem;
+}
+
+.producto-no-encontrado a {
+  display: inline-block;
+  background-color: #1a1a1a;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 4px;
+  text-decoration: none;
+  margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  .detalle-contenido {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .detalle-info h1 {
+    font-size: 1.8rem;
+  }
+
+  .precio {
+    font-size: 1.8rem;
+  }
+}
