@@ -3,18 +3,14 @@ import './TarjetaProducto.css'
 
 export default function TarjetaProducto({ producto }) {
   return (
-    <div className="tarjeta-producto">
-      <div className="producto-imagen">
+    <Link to={`/producto/${producto.id}`} className="tarjeta-producto">
+      <div className="tarjeta-imagen">
         <img src={producto.imagen} alt={producto.nombre} />
       </div>
-      <div className="producto-info">
+      <div className="tarjeta-info">
         <h3>{producto.nombre}</h3>
-        <p className="producto-descripcion">{producto.descripcion}</p>
-        <p className="producto-precio">${producto.precio}</p>
-        <Link to={`/producto/${producto.id}`} className="ver-detalles">
-          Ver Detalles
-        </Link>
+        <p className="tarjeta-precio">${producto.precio.toLocaleString('es-CO')}</p>
       </div>
-    </div>
+    </Link>
   )
 }

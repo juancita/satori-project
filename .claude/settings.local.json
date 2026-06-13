@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(echo \"test\")",
+      "Bash(rm /tmp/test_write.txt)",
+      "Bash(python3 *)",
+      "Bash(xattr /Users/usuario/Documents/satori-project/src/data/productos.json)",
+      "Bash(xattr -l /Users/usuario/Documents/satori-project/src/data/productos.json)",
+      "Bash(osascript -e 'tell application \"Finder\" to delete POSIX file \"/Users/usuario/Documents/satori-project/src/data/productos.json\"')"
+    ]
+  }
+}

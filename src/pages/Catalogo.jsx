@@ -14,27 +14,29 @@ export default function Catalogo() {
   return (
     <div className="pagina-catalogo">
       <div className="container">
-        <h1>Catálogo de Productos</h1>
-
+        <div className="catalogo-header">
+          <h1>Colección</h1>
+          <p>{productosFiltrados.length} {productosFiltrados.length === 1 ? 'producto' : 'productos'}</p>
+        </div>
         <div className="buscador">
           <input
             type="text"
-            placeholder="Buscar productos..."
+            placeholder="Buscar..."
             value={filtro}
-            onChange={(e) => setFiltro(e.target.value)}
+            onChange={e => setFiltro(e.target.value)}
             className="input-busqueda"
           />
         </div>
+      </div>
 
-        <div className="grid-productos">
-          {productosFiltrados.length > 0 ? (
-            productosFiltrados.map(producto => (
-              <TarjetaProducto key={producto.id} producto={producto} />
-            ))
-          ) : (
-            <p className="sin-resultados">No se encontraron productos</p>
-          )}
-        </div>
+      <div className="grid-productos container">
+        {productosFiltrados.length > 0 ? (
+          productosFiltrados.map(producto => (
+            <TarjetaProducto key={producto.id} producto={producto} />
+          ))
+        ) : (
+          <p className="sin-resultados">Sin resultados</p>
+        )}
       </div>
     </div>
   )

@@ -1,145 +1,244 @@
 .pagina-detalle {
   min-height: 100vh;
-  padding: 3rem 0;
+  background-color: #0f0f0f;
+  color: #ffffff;
+  padding: 2.5rem 0 6rem;
 }
 
 .volver-link {
   display: inline-block;
-  color: #1a1a1a;
+  color: #555;
   text-decoration: none;
-  margin-bottom: 2rem;
-  transition: color 0.3s ease;
+  margin-bottom: 3rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  transition: color 0.2s;
 }
 
-.volver-link:hover {
-  color: #666;
-}
+.volver-link:hover { color: #fff; }
 
-.detalle-contenido {
+/* ── Grid ── */
+.detalle-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 3rem;
+  gap: 5rem;
   align-items: start;
 }
 
-.detalle-imagen {
-  background-color: #f0f0f0;
-  border-radius: 8px;
-  overflow: hidden;
+/* ── Media container: 3 capas ── */
+.detalle-media {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-.detalle-imagen img {
+.media-container {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background-color: #111;
+}
+
+/* Capa 0 — Video de fondo */
+.video-bg {
+  position: absolute;
+  inset: 0;
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0.5;
+}
+
+/* Capa 1 — Estrella militar: watermark de marca */
+.star-watermark {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.star-watermark img {
+  width: 55%;    /* Estrella ocupa 55% del contenedor — visible pero no invasiva */
   height: auto;
+  opacity: 0.07; /* Muy sutil: se siente la marca sin tapar la prenda */
+}
+
+/* Capa 2 — Imagen PNG de la prenda */
+.imagen-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.imagen-overlay img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: opacity 0.35s ease;
+}
+
+/* Thumbnails */
+.thumbnails {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.thumb-btn {
+  width: 76px;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background-color: #1a1a1a;
+  border: 1px solid transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: border-color 0.2s;
+}
+
+.thumb-btn:hover  { border-color: #555; }
+.thumb-btn.activo { border-color: #fff; }
+
+.thumb-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
 
-.detalle-info h1 {
-  font-size: 2.5rem;
+/* ── Info panel ── */
+.detalle-info { padding-top: 0.5rem; }
+
+.detalle-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.detalle-logo {
+  height: 44px;
+  width: auto;
+  opacity: 0.85;
+}
+
+.detalle-categoria {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #555;
+}
+
+.detalle-nombre {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
   margin-bottom: 1rem;
 }
 
 .detalle-descripcion {
-  font-size: 1.1rem;
-  color: #666;
-  margin-bottom: 1.5rem;
+  color: #888;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  margin-bottom: 1.75rem;
 }
 
 .detalle-precio {
-  margin-bottom: 2rem;
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 2.5rem;
 }
 
-.precio {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin: 0;
+/* Selectors */
+.selector-grupo  { margin-bottom: 2rem; }
+
+.selector-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #555;
+  margin-bottom: 0.85rem;
 }
 
-.moneda {
-  color: #999;
-  font-size: 0.9rem;
-  margin: 0.5rem 0 0 0;
+.seleccion-valor { color: #ccc; }
+
+.talles-grid, .colores-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.talle-btn, .color-btn {
+  background-color: transparent;
+  border: 1px solid #2a2a2a;
+  color: #aaa;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, background-color 0.2s;
+  font-family: inherit;
+}
+
+.talle-btn {
+  min-width: 52px;
+  height: 44px;
+  padding: 0 14px;
+}
+
+.color-btn { padding: 10px 22px; }
+
+.talle-btn:hover, .color-btn:hover {
+  border-color: #555;
+  color: #fff;
+}
+
+.talle-btn.activo, .color-btn.activo {
+  background-color: #fff;
+  border-color: #fff;
+  color: #000;
 }
 
 .detalle-detalles {
-  background-color: #f8f9fa;
-  padding: 1rem;
-  border-radius: 8px;
-  margin-bottom: 2rem;
-  color: #666;
+  font-size: 0.85rem;
+  color: #555;
+  line-height: 1.75;
+  margin-bottom: 2.5rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid #1e1e1e;
 }
 
-.selector-talles,
-.selector-colores {
-  margin-bottom: 2rem;
+.detalle-acciones { margin-top: 0.5rem; }
+
+/* Error state */
+.detalle-error {
+  min-height: 100vh;
+  background-color: #0f0f0f;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 4rem 0;
 }
 
-.selector-talles label,
-.selector-colores label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
-
-.talles-grid,
-.colores-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
-  gap: 1rem;
-}
-
-.talle-btn,
-.color-btn {
-  padding: 10px;
-  border: 2px solid #ddd;
-  background-color: white;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.talle-btn:hover,
-.color-btn:hover {
-  border-color: #1a1a1a;
-}
-
-.talle-btn.activo,
-.color-btn.activo {
-  background-color: #1a1a1a;
-  color: white;
-  border-color: #1a1a1a;
-}
-
-.detalle-acciones {
-  margin-top: 2rem;
-}
-
-.producto-no-encontrado {
-  text-align: center;
-  padding: 3rem;
-}
-
-.producto-no-encontrado a {
+.btn-volver-error {
   display: inline-block;
-  background-color: #1a1a1a;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 4px;
+  color: #888;
   text-decoration: none;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 
-@media (max-width: 768px) {
-  .detalle-contenido {
+@media (max-width: 900px) {
+  .detalle-grid {
     grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .detalle-info h1 {
-    font-size: 1.8rem;
-  }
-
-  .precio {
-    font-size: 1.8rem;
+    gap: 2.5rem;
   }
 }

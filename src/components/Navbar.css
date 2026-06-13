@@ -1,11 +1,10 @@
 .navbar {
-  background-color: #1a1a1a;
-  color: white;
+  background-color: #0a0a0a;
   padding: 1rem 0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
   z-index: 100;
+  border-bottom: 1px solid #1a1a1a;
 }
 
 .navbar-content {
@@ -14,29 +13,38 @@
   align-items: center;
 }
 
-.navbar-logo {
-  font-size: 1.5rem;
-  font-weight: bold;
+.navbar-logo img {
+  height: 72px;   /* Logo cuadrado 1:1 → se muestra a 52×52px */
+  width: auto;
+  display: block;
+  /* Sin filter:invert porque logo-en-blanco.png ya es blanco */
 }
 
 .navbar-menu {
   display: flex;
   list-style: none;
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
 .navbar-menu a {
-  color: white;
-  transition: color 0.3s ease;
+  color: #888;
+  text-decoration: none;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  transition: color 0.2s;
 }
 
 .navbar-menu a:hover {
-  color: #ffd700;
+  color: #fff;
 }
 
 @media (max-width: 768px) {
+  .navbar-logo img {
+    height: 40px;
+  }
+
   .navbar-menu {
-    gap: 1rem;
-    font-size: 0.9rem;
+    gap: 1.5rem;
   }
 }

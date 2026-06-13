@@ -6,7 +6,7 @@ export default function Navbar() {
     <nav className="navbar">
       <div className="container navbar-content">
         <Link to="/" className="navbar-logo">
-          Satori
+          <img src="/logo-en-blanco.png" alt="Satori" />
         </Link>
         <ul className="navbar-menu">
           <li><Link to="/">Inicio</Link></li>

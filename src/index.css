@@ -1,3 +1,15 @@
+:root {
+  --black: #0a0a0a;
+  --dark: #0f0f0f;
+  --surface: #1a1a1a;
+  --border: #222;
+  --grey-dark: #444;
+  --grey: #888;
+  --grey-light: #bbb;
+  --off-white: #f0f0f0;
+  --white: #ffffff;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,9 +17,11 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f8f9fa;
-  color: #333;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: var(--dark);
+  color: var(--white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 a {
@@ -17,14 +31,17 @@ a {
 
 button {
   cursor: pointer;
+  font-family: inherit;
   border: none;
-  padding: 10px 15px;
-  border-radius: 4px;
-  font-size: 1rem;
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 24px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
 }

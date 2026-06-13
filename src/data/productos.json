@@ -1,62 +1,50 @@
 [
   {
     "id": 1,
-    "nombre": "Remera Básica",
-    "descripcion": "Remera clásica de algodón 100%",
-    "precio": 1500,
-    "imagen": "https://via.placeholder.com/300x300?text=Remera+Basica",
-    "talles": ["XS", "S", "M", "L", "XL", "XXL"],
-    "colores": ["Negro", "Blanco", "Gris"],
-    "detalles": "Confeccionada en algodón premium, cómoda y duradera."
+    "nombre": "Militia Azul",
+    "descripcion": "Conjunto militar en colorway azul. Tela técnica de alto rendimiento con patrón camuflaje exclusivo.",
+    "precio": 180000,
+    "imagen": "/militar-back-azul.png",
+    "imagenes": ["/militar-back-azul.png", "/militar-lateral-azul.png", "/modelo-militar-1.png"],
+    "video": "/satori-militari-2-final.mp4",
+    "talles": ["S", "M", "L", "XL"],
+    "colores": ["Azul"],
+    "detalles": "80% Poliéster, 20% Elastano. Lavado a mano en frío. No usar blanqueador. Secar a la sombra."
   },
   {
     "id": 2,
-    "nombre": "Pantalón Slim",
-    "descripcion": "Pantalón ajustado de calidad premium",
-    "precio": 3500,
-    "imagen": "https://via.placeholder.com/300x300?text=Pantalon+Slim",
-    "talles": ["28", "30", "32", "34", "36", "38"],
-    "colores": ["Negro", "Azul", "Gris"],
-    "detalles": "Pantalón moderno con stretch, perfecto para uso diario."
+    "nombre": "Militia Verde",
+    "descripcion": "Conjunto militar en colorway verde. Mismo corte técnico con el patrón camuflaje de la colección.",
+    "precio": 180000,
+    "imagen": "/militar-back-verde.png",
+    "imagenes": ["/militar-back-verde.png", "/militar-lateral-verde.png", "/modelo-militar-1.png"],
+    "video": "/satori-militari-1.mp4",
+    "talles": ["S", "M", "L", "XL"],
+    "colores": ["Verde"],
+    "detalles": "80% Poliéster, 20% Elastano. Lavado a mano en frío. No usar blanqueador. Secar a la sombra."
   },
   {
     "id": 3,
-    "nombre": "Campera Jean",
-    "descripcion": "Campera de mezclilla resistente",
-    "precio": 4500,
-    "imagen": "https://via.placeholder.com/300x300?text=Campera+Jean",
+    "nombre": "Satori Core Gris",
+    "descripcion": "Sudadera minimalista en gris mélange. Diseño limpio con detalles premium en cada costura.",
+    "precio": 165000,
+    "imagen": "/sudadrera-gris-frontal.png",
+    "imagenes": ["/sudadrera-gris-frontal.png", "/sudadera-gris-back.png", "/sudadera-gris-lateral.png", "/modelo-sudadera-1.png"],
+    "video": "/sudadre-satori-1.mp4",
     "talles": ["XS", "S", "M", "L", "XL"],
-    "colores": ["Azul Claro", "Azul Oscuro", "Negro"],
-    "detalles": "Campera clásica de mezclilla con bolsillos funcionales."
+    "colores": ["Gris"],
+    "detalles": "95% Algodón Peinado, 5% Elastano. Lavado a máquina en frío. Secar a la sombra. No planchar directo."
   },
   {
     "id": 4,
-    "nombre": "Vestido Floral",
-    "descripcion": "Vestido con estampado floral elegante",
-    "precio": 2800,
-    "imagen": "https://via.placeholder.com/300x300?text=Vestido+Floral",
+    "nombre": "Satori Core Negro",
+    "descripcion": "Sudadera esencial en negro profundo. La pieza base del guardarropa Satori.",
+    "precio": 165000,
+    "imagen": "/sudadera-negra-frente.png",
+    "imagenes": ["/sudadera-negra-frente.png", "/sudadera-negra-back.png", "/sudadera-black-lateral.png", "/sudadera-final.png"],
+    "video": "/sudadre-satori-1.mp4",
     "talles": ["XS", "S", "M", "L", "XL"],
-    "colores": ["Multicolor", "Rosa", "Azul"],
-    "detalles": "Vestido versátil para cualquier ocasión."
-  },
-  {
-    "id": 5,
-    "nombre": "Sudadera Cómoda",
-    "descripcion": "Sudadera de algodón y poliéster",
-    "precio": 2200,
-    "imagen": "https://via.placeholder.com/300x300?text=Sudadera",
-    "talles": ["XS", "S", "M", "L", "XL", "XXL"],
-    "colores": ["Negro", "Gris", "Blanco", "Bordo"],
-    "detalles": "Perfecta para estar cómodo en casa o en la calle."
-  },
-  {
-    "id": 6,
-    "nombre": "Shorts Deportivos",
-    "descripcion": "Shorts ideales para entrenar",
-    "precio": 1800,
-    "imagen": "https://via.placeholder.com/300x300?text=Shorts+Deportivos",
-    "talles": ["XS", "S", "M", "L", "XL"],
-    "colores": ["Negro", "Gris", "Azul"],
-    "detalles": "Material transpirable, perfecto para actividades deportivas."
+    "colores": ["Negro"],
+    "detalles": "95% Algodón Peinado, 5% Elastano. Lavado a máquina en frío. Secar a la sombra. No planchar directo."
   }
 ]
