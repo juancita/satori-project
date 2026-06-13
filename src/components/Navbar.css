@@ -14,7 +14,7 @@
 }
 
 .navbar-logo img {
-  height: 72px;   /* Logo cuadrado 1:1 → se muestra a 52×52px */
+  height: 52px;   /* Logo cuadrado 1:1 → se muestra a 52×52px */
   width: auto;
   display: block;
   /* Sin filter:invert porque logo-en-blanco.png ya es blanco */
