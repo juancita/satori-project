@@ -1,20 +1,35 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import Lobby from './pages/Lobby'
 import Inicio from './pages/Inicio'
 import Catalogo from './pages/Catalogo'
 import DetalleProducto from './pages/DetalleProducto'
 
-function App() {
+function Layout() {
+  const { pathname } = useLocation()
+  // El lobby es una pantalla de inicio inmersiva (estilo videojuego):
+  // se muestra a pantalla completa, sin la navegación general.
+  const esLobby = pathname === '/'
+
   return (
-    <Router>
-      <Navbar />
+    <>
+      {!esLobby && <Navbar />}
       <Routes>
-        <Route path="/" element={<Inicio />} />
+        <Route path="/" element={<Lobby />} />
+        <Route path="/inicio" element={<Inicio />} />
         <Route path="/catalogo" element={<Catalogo />} />
         <Route path="/producto/:id" element={<DetalleProducto />} />
       </Routes>
-      <Footer />
+      {!esLobby && <Footer />}
+    </>
+  )
+}
+
+function App() {
+  return (
+    <Router>
+      <Layout />
     </Router>
   )
 }

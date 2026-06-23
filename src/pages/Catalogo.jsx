@@ -1,10 +1,14 @@
 import { useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import TarjetaProducto from '../components/TarjetaProducto'
+import EntradaWarp from '../components/EntradaWarp'
 import productos from '../data/productos.json'
 import './Catalogo.css'
 
 export default function Catalogo() {
+  const location = useLocation()
   const [filtro, setFiltro] = useState('')
+  const [entrada, setEntrada] = useState(!!location.state?.fromLobby)
 
   const productosFiltrados = productos.filter(p =>
     p.nombre.toLowerCase().includes(filtro.toLowerCase()) ||
@@ -13,6 +17,7 @@ export default function Catalogo() {
 
   return (
     <div className="pagina-catalogo">
+      {entrada && <EntradaWarp onDone={() => setEntrada(false)} />}
       <div className="container">
         <div className="catalogo-header">
           <h1>Colección</h1>

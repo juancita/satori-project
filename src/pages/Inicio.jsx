@@ -1,5 +1,7 @@
-import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import BotonWhatsApp from '../components/BotonWhatsApp'
+import EntradaWarp from '../components/EntradaWarp'
 import './Inicio.css'
 
 function EstrellaDivisor() {
@@ -11,8 +13,25 @@ function EstrellaDivisor() {
 }
 
 export default function Inicio() {
+  const location = useLocation()
+  const [entrada, setEntrada] = useState(!!location.state?.fromLobby)
+
+  // Si se llega pidiendo contacto (desde el lobby) o con #contacto en la URL,
+  // desplazarse a esa sección tras montar — la SPA no resuelve el hash sola.
+  // Solo al montar: si hay overlay de entrada, salto instantáneo (queda detrás).
+  useEffect(() => {
+    const irContacto =
+      location.state?.scrollContacto || window.location.hash === '#contacto'
+    if (irContacto) {
+      const el = document.getElementById('contacto')
+      if (el) el.scrollIntoView({ behavior: entrada ? 'auto' : 'smooth' })
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   return (
     <div className="pagina-inicio">
+      {entrada && <EntradaWarp onDone={() => setEntrada(false)} />}
 
       {/* ── Hero: logo grande como protagonista ── */}
       <section className="hero">

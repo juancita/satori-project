@@ -32,9 +32,12 @@ npm run lint
 ## Architecture & Structure
 
 ### Pages (Views)
-- **`src/pages/Inicio.jsx`** — Hero landing page with featured sections and WhatsApp CTA
+- **`src/pages/Lobby.jsx`** — Arcade-style start screen at `/` (no Navbar/Footer). Floating `logo-inicio.PNG` on a light background, with keyboard-navigable menu (↑/↓ + Enter) linking to the main page, catalog, and contact. Uses the *Press Start 2P* font (loaded in `index.html`).
+- **`src/pages/Inicio.jsx`** — Hero landing page ("página principal") at `/inicio`, with featured sections and WhatsApp CTA
 - **`src/pages/Catalogo.jsx`** — Product grid with client-side search/filter
 - **`src/pages/DetalleProducto.jsx`** — Single product detail page with size/color selectors
+
+> **Routing note:** `/` is the Lobby start screen; the previous home content now lives at `/inicio`. The Navbar/Footer are hidden on the Lobby (see `Layout` in `App.jsx`).
 
 ### Components (Reusable)
 - **`Navbar.jsx`** — Sticky navigation bar

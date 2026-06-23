@@ -9,9 +9,9 @@ export default function Footer() {
       </div>
 
       <nav className="footer-nav">
-        <Link to="/">Inicio</Link>
+        <Link to="/inicio">Inicio</Link>
         <Link to="/catalogo">Catálogo</Link>
-        <a href="/#contacto">Contacto</a>
+        <a href="/inicio#contacto">Contacto</a>
       </nav>
 
       <p className="footer-copy">© {new Date().getFullYear()} Satori. Todos los derechos reservados.</p>

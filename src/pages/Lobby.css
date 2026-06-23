@@ -1,0 +1,200 @@
+/* ─────────────────────────────────────────────
+   Lobby — pantalla de inicio estilo arcade.
+   Fondo claro (blancos/grises) para que el logo
+   luzca, con detalles retro (scanlines CRT, grid,
+   tipografía pixel) sobre la paleta monocroma del
+   sitio: tinta #0a0a0a sobre claro.
+   ───────────────────────────────────────────── */
+
+.lobby {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  text-align: center;
+  color: #0a0a0a;
+  /* Degradado claro con centro luminoso: las estrellas warp salen de ahí */
+  background: radial-gradient(circle at 50% 50%, #ffffff 0%, #ededed 60%, #dedede 100%);
+}
+
+/* Campo de estrellas (canvas) — detrás del contenido */
+.lobby-estrellas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: block;
+}
+
+/* Scanlines CRT por encima de todo el lobby */
+.lobby-scanlines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(10, 10, 10, 0.045) 0px,
+    rgba(10, 10, 10, 0.045) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  animation: scanFlicker 4s steps(60) infinite;
+}
+
+@keyframes scanFlicker {
+  0%, 100% { opacity: 0.85; }
+  50%      { opacity: 1; }
+}
+
+.lobby-inner {
+  position: relative;
+  z-index: 3;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Press Start 2P', 'Courier New', monospace;
+}
+
+/* Logo flotando en el centro — protagonista */
+.lobby-logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+
+.lobby-logo {
+  width: 380px;
+  height: auto;
+  filter: drop-shadow(0 16px 40px rgba(10, 10, 10, 0.22));
+  animation: lobbyFloat 6s ease-in-out infinite;
+}
+
+@keyframes lobbyFloat {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-12px); }
+}
+
+/* "Insert Coin" parpadeante */
+.lobby-insert {
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #0a0a0a;
+  margin-bottom: 3rem;
+  animation: blink 1.2s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  0%, 50%   { opacity: 1; }
+  50.01%, 100% { opacity: 0.15; }
+}
+
+/* Menú de opciones */
+.lobby-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.lobby-opcion {
+  position: relative;
+  background: transparent;
+  border: 2px solid #0a0a0a;
+  color: #0a0a0a;
+  font-family: inherit;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 16px 56px;
+  min-width: 320px;
+  transition: background-color 0.12s, color 0.12s, transform 0.12s;
+}
+
+/* El cursor ► aparece cuando la opción está activa */
+.lobby-cursor {
+  position: absolute;
+  left: 22px;
+  top: 50%;
+  transform: translateY(-50%) translateX(-6px);
+  opacity: 0;
+  transition: opacity 0.12s, transform 0.12s;
+  animation: blink 1s steps(2, start) infinite;
+}
+
+.lobby-opcion.is-activa {
+  background-color: #0a0a0a;
+  color: #f5f5f5;
+  transform: translateX(4px);
+}
+
+.lobby-opcion.is-activa .lobby-cursor {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+  color: #f5f5f5;
+}
+
+.lobby-hint {
+  font-size: 0.5rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #888;
+}
+
+/* ── Transición de salida (al elegir una opción) ──
+   El menú se desliza hacia arriba y el logo se acerca (zoom),
+   reforzando el "entrar a hiperespacio" del fondo warp. */
+.lobby-logo {
+  transition: transform 0.7s cubic-bezier(0.7, 0, 0.3, 1), opacity 0.7s ease;
+}
+
+.lobby-insert,
+.lobby-menu,
+.lobby-hint {
+  transition: transform 0.6s cubic-bezier(0.6, 0, 0.2, 1), opacity 0.5s ease;
+}
+
+.lobby.is-saliendo {
+  pointer-events: none;
+}
+
+.lobby.is-saliendo .lobby-logo {
+  transform: scale(1.6);
+  opacity: 0;
+}
+
+.lobby.is-saliendo .lobby-insert,
+.lobby.is-saliendo .lobby-menu,
+.lobby.is-saliendo .lobby-hint {
+  transform: translateY(-60px);
+  opacity: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .lobby-logo {
+    width: 240px;
+  }
+
+  .lobby-opcion {
+    min-width: 0;
+    width: 100%;
+    max-width: 320px;
+    font-size: 0.62rem;
+    padding: 14px 40px;
+  }
+
+  .lobby-insert {
+    font-size: 0.5rem;
+  }
+
+  .lobby-hint {
+    font-size: 0.42rem;
+  }
+}
