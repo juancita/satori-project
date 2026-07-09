@@ -17,8 +17,6 @@
   height: 72px;   /* Logo cuadrado 1:1 → se muestra a 52×52px */
   width: auto;
   display: block;
-  /* invert(1): logo negro sobre blanco → blanco sobre negro para la navbar oscura */
-  filter: invert(1);
 }
 
 .navbar-menu {

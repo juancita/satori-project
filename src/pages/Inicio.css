@@ -30,8 +30,7 @@
   width: 260px;   /* Logo cuadrado 260×260px — gran impacto visual */
   height: auto;
   opacity: 1;
-  /* invert(1): el logo es negro sobre fondo blanco → lo pasamos a blanco sobre negro para el fondo oscuro */
-  filter: invert(1) drop-shadow(0 0 40px rgba(255,255,255,0.08));
+  filter: drop-shadow(0 0 40px rgba(255,255,255,0.08));
   animation: logoFloat 6s ease-in-out infinite;
 }
 
