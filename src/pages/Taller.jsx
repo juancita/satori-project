@@ -73,27 +73,31 @@ export default function Taller() {
     <div className="taller">
       {/* ── Hero ── */}
       <section className="taller-hero">
-        <VideoFondo src="/media/cortando.mp4" />
-        <div className="taller-hero-overlay" aria-hidden="true" />
-        <div className="container taller-hero-content">
-          <p className="taller-eyebrow">El Taller · Satori</p>
-          <h1>
-            Hecho a mano,
-            <br />
-            hecho para ti.
-          </h1>
-          <p className="taller-sub">
-            No vendemos tallas: creamos piezas. Diseñamos, cortamos y
-            confeccionamos ropa única para quienes no visten como los demás.
-          </p>
-          <a
-            href={URL_WA}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="taller-cta"
-          >
-            Diseña la tuya
-          </a>
+        <div className="container taller-hero-inner">
+          <div className="taller-hero-content">
+            <p className="taller-eyebrow">El Taller · Satori</p>
+            <h1>
+              Hecho a mano,
+              <br />
+              hecho para ti.
+            </h1>
+            <p className="taller-sub">
+              No vendemos tallas: creamos piezas. Diseñamos, cortamos y
+              confeccionamos ropa única para quienes no visten como los demás.
+            </p>
+            <a
+              href={URL_WA}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="taller-cta"
+            >
+              Diseña la tuya
+            </a>
+          </div>
+          <div className="taller-hero-media">
+            <VideoFondo src="/media/cortando.mp4" />
+            <div className="taller-paso-tint" aria-hidden="true" />
+          </div>
         </div>
       </section>
 

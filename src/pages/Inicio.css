@@ -3,34 +3,70 @@
   background-color: #0f0f0f;
 }
 
-/* ── Hero ── */
+/* ── Hero: logo flotante + fotos con parallax ── */
 .hero {
-  min-height: 90vh;
-  display: flex;
-  align-items: center;
+  position: relative;
+  min-height: 100vh;
   background-color: #0a0a0a;
-  padding: 5rem 0;
+  overflow: hidden;
 }
 
-.hero-inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 5rem;
-  align-items: center;
+/* Fotos flotantes de modelos */
+.hero-foto {
+  border-radius: 8px;
+  overflow: hidden;
+  pointer-events: auto;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
 }
 
-/* Logo principal: protagonista en la mitad izquierda */
-.hero-logo-wrap {
+.hero-foto img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 3 / 4;
+  filter: grayscale(0.3);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.hero-foto:hover img {
+  transform: scale(1.06);
+  filter: grayscale(0);
+}
+
+/* Posiciones (bordes, dejando libre el centro para el logo + texto) */
+.hero-foto--1 { top: 11%; left: 4%;  width: 140px; }
+.hero-foto--2 { top: 8%;  left: 79%; width: 155px; }
+.hero-foto--3 { top: 44%; left: 1%;  width: 165px; }
+.hero-foto--4 { top: 47%; left: 84%; width: 150px; }
+.hero-foto--5 { top: 70%; left: 11%; width: 135px; }
+.hero-foto--6 { top: 71%; left: 76%; width: 140px; }
+
+/* Bloque central (logo + texto + CTA) */
+.hero-centro-float {
+  inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  pointer-events: none;
+}
+
+.hero-centro {
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 620px;
+  padding: 0 1.5rem;
 }
 
 .hero-logo {
-  width: 360px;   /* Logo protagonista del hero — gran impacto visual */
+  width: 300px;   /* Logo protagonista del hero */
   height: auto;
   opacity: 1;
-  filter: drop-shadow(0 0 40px rgba(255,255,255,0.08));
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 0 40px rgba(255, 255, 255, 0.08));
   animation: logoFloat 6s ease-in-out infinite;
 }
 
@@ -39,33 +75,18 @@
   50%       { transform: translateY(-10px); }
 }
 
-/* Contenido textual: mitad derecha */
-.hero-content {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.hero-eyebrow {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.22em;
-  color: #666;
-  margin-bottom: 1.5rem;
-}
-
 .hero h1 {
-  font-size: clamp(3.5rem, 6vw, 6rem);
+  font-size: clamp(3.2rem, 6vw, 5.5rem);
   font-weight: 700;
   line-height: 1;
   letter-spacing: -0.03em;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .hero-sub {
   font-size: 1rem;
-  color: #888;
-  margin-bottom: 3rem;
+  color: #999;
+  margin-bottom: 2.5rem;
   line-height: 1.7;
 }
 
@@ -136,13 +157,58 @@
   line-height: 1.65;
 }
 
-/* ── Vitrina en video ── */
+/* ── Vitrina en video (carrusel 4:5, cámara lenta) ── */
 .vitrina {
-  position: relative;
-  min-height: 80vh;
+  padding: 7rem 0;
+  border-top: 1px solid #1a1a1a;
+}
+
+.vitrina-inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: center;
+}
+
+.vitrina-texto {
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.vitrina-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-size: 0.72rem;
+  color: #888;
+  margin-bottom: 1rem;
+}
+
+.vitrina-texto h2 {
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+  margin-bottom: 1.25rem;
+}
+
+.vitrina-desc {
+  color: #888;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+  max-width: 26rem;
+}
+
+/* Marco 4:5 — coincide con el video (1080x1350) => no recorta */
+.vitrina-marco {
+  position: relative;
+  width: min(440px, 80vw);
+  aspect-ratio: 4 / 5;
+  border-radius: 14px;
   overflow: hidden;
+  background: #111;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.55);
 }
 
 .vitrina-video {
@@ -151,37 +217,20 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: 0;
+  opacity: 0;
+  transition: opacity 1s ease;
   pointer-events: none;
 }
 
-.vitrina-overlay {
+.vitrina-video.is-activo {
+  opacity: 1;
+}
+
+.vitrina-marco-tint {
   position: absolute;
   inset: 0;
-  z-index: 1;
-  background: linear-gradient(180deg, rgba(10,10,10,0.25) 0%, rgba(10,10,10,0.1) 40%, rgba(10,10,10,0.9) 100%);
-}
-
-.vitrina-content {
-  position: relative;
-  z-index: 2;
-  padding-bottom: 4rem;
-}
-
-.vitrina-eyebrow {
-  text-transform: uppercase;
-  letter-spacing: 0.28em;
-  font-size: 0.72rem;
-  color: #ccc;
-  margin-bottom: 1rem;
-}
-
-.vitrina-content h2 {
-  font-size: clamp(2.2rem, 6vw, 4.5rem);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.02;
-  margin-bottom: 1.75rem;
+  pointer-events: none;
+  box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.35);
 }
 
 .vitrina-cta {
@@ -203,58 +252,6 @@
   background: #e8e8e8;
 }
 
-/* ── Lookbook: modelos ── */
-.lookbook {
-  padding: 7rem 0;
-}
-
-.lookbook-intro {
-  text-align: center;
-  margin-bottom: 3.5rem;
-}
-
-.lookbook-intro h2 {
-  font-size: clamp(2rem, 5vw, 3.4rem);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  margin-bottom: 0.75rem;
-}
-
-.lookbook-intro p {
-  color: #888;
-  font-size: 0.95rem;
-}
-
-.lookbook-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-  align-items: start;
-}
-
-.lookbook-item {
-  border-radius: 10px;
-  overflow: hidden;
-  background: #141414;
-}
-
-.lookbook-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  aspect-ratio: 3 / 4;
-  transition: transform 0.5s ease, filter 0.5s ease;
-  filter: grayscale(0.15);
-}
-
-.lookbook-item--tall img {
-  aspect-ratio: 3 / 5;
-}
-
 .lookbook-item:hover img {
   transform: scale(1.04);
   filter: grayscale(0);
@@ -264,26 +261,45 @@
 
 /* ── Responsive ── */
 @media (max-width: 900px) {
-  .hero-inner {
+  .vitrina-inner {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    justify-items: center;
     text-align: center;
   }
 
-  .hero-content {
+  .vitrina-texto {
     align-items: center;
   }
 
-  .hero-logo {
-    width: 240px;
+  .vitrina-desc {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .vitrina-marco {
+    order: -1;
   }
 
   .features-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
+}
 
-  .lookbook-grid {
-    grid-template-columns: repeat(2, 1fr);
+@media (max-width: 768px) {
+  .hero {
+    min-height: 92vh;
   }
+
+  .hero-logo {
+    width: 220px;
+  }
+
+  /* Fotos flotantes más pequeñas y hacia las esquinas en móvil */
+  .hero-foto--1 { top: 5%;  left: 2%;  width: 88px; }
+  .hero-foto--2 { top: 4%;  left: 74%; width: 96px; }
+  .hero-foto--3 { top: 40%; left: -2%; width: 92px; }
+  .hero-foto--4 { top: 42%; left: 80%; width: 90px; }
+  .hero-foto--5 { top: 78%; left: 4%;  width: 86px; }
+  .hero-foto--6 { top: 80%; left: 74%; width: 88px; }
 }

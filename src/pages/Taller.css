@@ -15,27 +15,31 @@
   pointer-events: none;
 }
 
-/* ── Hero ── */
+/* ── Hero (split: texto + video vertical) ── */
 .taller-hero {
-  position: relative;
-  min-height: 92vh;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
+  padding: 6rem 0;
+  border-bottom: 1px solid #1a1a1a;
 }
 
-.taller-hero-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background:
-    linear-gradient(180deg, rgba(10, 10, 10, 0.55) 0%, rgba(10, 10, 10, 0.35) 45%, rgba(10, 10, 10, 0.9) 100%);
+.taller-hero-inner {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: center;
 }
 
 .taller-hero-content {
+  max-width: 620px;
+}
+
+/* Marco vertical del video del hero — muestra bien el video 9:16 */
+.taller-hero-media {
   position: relative;
-  z-index: 2;
-  max-width: 760px;
+  aspect-ratio: 4 / 5;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #111;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.55);
 }
 
 .taller-eyebrow {
@@ -110,13 +114,15 @@
   margin: 0 auto;
 }
 
-/* Cada paso: video a un lado, texto al otro */
+/* Cada paso: video (vertical) a un lado, texto al otro */
 .taller-paso {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  align-items: stretch;
-  gap: 0;
-  min-height: 460px;
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  max-width: 1080px;
+  margin: 0 auto 5rem;
+  padding: 0 1.5rem;
 }
 
 .taller-paso--alt {
@@ -126,24 +132,27 @@
   direction: ltr;
 }
 
+/* Marco vertical 4:5 — muestra bien el video 9:16 sin recortar tan brusco */
 .taller-paso-media {
   position: relative;
   overflow: hidden;
-  min-height: 460px;
+  border-radius: 12px;
+  aspect-ratio: 4 / 5;
+  background: #111;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
 }
 
 .taller-paso-tint {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(180deg, rgba(10, 10, 10, 0.15), rgba(10, 10, 10, 0.45));
+  background: linear-gradient(180deg, rgba(10, 10, 10, 0.1), rgba(10, 10, 10, 0.4));
 }
 
 .taller-paso-texto {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 4rem clamp(1.5rem, 5vw, 5rem);
 }
 
 .taller-paso-num {
@@ -222,18 +231,29 @@
 
 /* ── Responsive ── */
 @media (max-width: 820px) {
+  .taller-hero-inner {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .taller-hero-media {
+    aspect-ratio: 4 / 5;
+    max-width: 420px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
   .taller-paso,
   .taller-paso--alt {
     grid-template-columns: 1fr;
     direction: ltr;
+    gap: 1.75rem;
   }
 
   .taller-paso-media {
-    min-height: 300px;
-  }
-
-  .taller-paso-texto {
-    padding: 3rem 1.5rem;
+    max-width: 440px;
+    width: 100%;
+    margin: 0 auto;
   }
 
   .taller-collage-grid {
