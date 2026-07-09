@@ -36,6 +36,28 @@
   margin: 0 auto;
 }
 
+/* Botón secundario hacia El Taller (para quien llegó directo a Piezas) */
+.piezas-btn-taller {
+  display: inline-block;
+  margin-top: 1.75rem;
+  padding: 0.85rem 2rem;
+  border: 1px solid #333;
+  border-radius: 2px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.piezas-btn-taller:hover {
+  background: #fff;
+  border-color: #fff;
+  color: #0a0a0a;
+}
+
 /* ── Marquesina (cinta infinita, efecto baraja) ── */
 .marquesina {
   width: 100%;

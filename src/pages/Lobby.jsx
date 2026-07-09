@@ -8,6 +8,7 @@ import './Lobby.css'
 const OPCIONES = [
   { label: 'Página Principal', to: '/inicio' },
   { label: 'El Taller', to: '/taller' },
+  { label: 'Piezas', to: '/piezas' },
   { label: 'Contacto', to: '/inicio', scrollContacto: true },
 ]
 

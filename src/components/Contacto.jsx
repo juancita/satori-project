@@ -5,13 +5,20 @@ const MENSAJE_WA = 'Hola, tengo una consulta sobre sus productos.'
 const URL_WA = `https://wa.me/${NUMERO_WA}?text=${encodeURIComponent(MENSAJE_WA)}`
 const URL_IG = 'https://www.instagram.com/satoriessence.co/'
 
-export default function Contacto() {
+export default function Contacto({
+  titulo = (
+    <>
+      ¿Listo para<br />vestirte bien?
+    </>
+  ),
+  subtitulo = 'Escríbenos y te asesoramos.',
+}) {
   return (
     <section className="contacto" id="contacto">
       <div className="container contacto-inner">
         <div className="contacto-head">
-          <h2>¿Listo para<br />vestirte bien?</h2>
-          <p>Escríbenos y te asesoramos.</p>
+          <h2>{titulo}</h2>
+          <p>{subtitulo}</p>
         </div>
 
         {/* Contenedor con glow — paleta del sitio (blanco/negro) */}

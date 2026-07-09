@@ -1,4 +1,5 @@
 import { useRef } from 'react'
+import { Link } from 'react-router-dom'
 import Contacto from '../components/Contacto'
 import './Piezas.css'
 
@@ -49,6 +50,9 @@ export default function Piezas() {
           <p className="piezas-eyebrow">El Taller · Satori</p>
           <h1>Piezas terminadas</h1>
           <p>Pasa el cursor (o toca) sobre una pieza para verla en detalle.</p>
+          <Link to="/taller" className="piezas-btn-taller">
+            ¿Cómo las hacemos? Conoce El Taller
+          </Link>
         </div>
 
         <div className="marquesina" ref={contRef}>
@@ -90,7 +94,14 @@ export default function Piezas() {
       </section>
 
       {/* ── Redes sociales ── */}
-      <Contacto />
+      <Contacto
+        titulo={
+          <>
+            Síguenos<br />en redes
+          </>
+        }
+        subtitulo="Novedades, lanzamientos y contenido exclusivo."
+      />
     </div>
   )
 }
