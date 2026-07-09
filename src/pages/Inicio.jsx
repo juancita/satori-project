@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import BotonWhatsApp from '../components/BotonWhatsApp'
+import Contacto from '../components/Contacto'
 import EntradaWarp from '../components/EntradaWarp'
 import './Inicio.css'
 
@@ -82,13 +82,7 @@ export default function Inicio() {
       <EstrellaDivisor />
 
       {/* ── Contacto ── */}
-      <section className="contacto" id="contacto">
-        <div className="container">
-          <h2>¿Listo para<br />vestirte bien?</h2>
-          <p>Escríbenos y te asesoramos.</p>
-          <BotonWhatsApp texto="Contactar por WhatsApp" />
-        </div>
-      </section>
+      <Contacto />
 
     </div>
   )

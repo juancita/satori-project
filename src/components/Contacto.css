@@ -1,0 +1,168 @@
+/* ── Contacto: contenedor con glow, botones sociales grandes ── */
+.contacto {
+  padding: 7rem 0;
+  border-top: 1px solid #1a1a1a;
+}
+
+.contacto-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3.5rem;
+  text-align: center;
+}
+
+.contacto-head h2 {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin-bottom: 1.25rem;
+}
+
+.contacto-head p {
+  color: #888;
+  font-size: 0.95rem;
+  max-width: 34rem;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Tarjeta cuadrada con glow neutro (paleta del sitio) */
+.social-card {
+  width: 100%;
+  max-width: 480px;
+  border-radius: 28px;
+  padding: 3.5rem 3rem;
+  background: linear-gradient(145deg, #161616 0%, #0a0a0a 100%);
+  border: 1px solid #262626;
+  box-shadow:
+    0 0 60px rgba(255, 255, 255, 0.05),
+    0 24px 60px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.social-card:hover {
+  transform: scale(1.02);
+  box-shadow:
+    0 0 80px rgba(255, 255, 255, 0.08),
+    0 24px 70px rgba(0, 0, 0, 0.7);
+}
+
+.social-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3.5rem;
+}
+
+/* ── Botón social ── */
+.social-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.icon-container {
+  display: inline-flex;
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.icon-container svg {
+  width: 52px;
+  height: 52px;
+  color: #fff;
+}
+
+/* Halo interior al hover */
+.icon-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.35) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.social-icon:hover .icon-container {
+  transform: translateY(-10px) scale(1.08);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 0 28px rgba(255, 255, 255, 0.18);
+}
+
+.social-icon:hover .icon-container::before {
+  opacity: 1;
+}
+
+.social-icon:hover svg {
+  animation: shake 0.5s;
+}
+
+.icon-label {
+  margin-top: 1rem;
+  color: #fff;
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover .icon-label {
+  opacity: 1;
+  transform: translateY(4px);
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0) rotate(0); }
+  20% { transform: translateX(-5px) rotate(-5deg); }
+  40% { transform: translateX(5px) rotate(5deg); }
+  60% { transform: translateX(-5px) rotate(-5deg); }
+  80% { transform: translateX(5px) rotate(5deg); }
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .contacto {
+    padding: 5rem 0;
+  }
+
+  .social-card {
+    padding: 2.5rem 1.5rem;
+    border-radius: 24px;
+  }
+
+  .social-grid {
+    gap: 2rem;
+  }
+
+  .icon-container {
+    width: 104px;
+    height: 104px;
+  }
+
+  .icon-container svg {
+    width: 44px;
+    height: 44px;
+  }
+}
