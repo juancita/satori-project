@@ -12,7 +12,8 @@
       "Bash(git mv *)",
       "Bash(git add *)",
       "Bash(git commit -m ' *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(sips -g hasAlpha -g pixelWidth -g pixelHeight public/logo-inicio.png)"
     ]
   }
 }
