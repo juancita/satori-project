@@ -137,7 +137,9 @@ export default function Taller() {
               depth={foto.depth}
               className={`taller-pieza ${foto.clase}`}
             >
-              <img src={foto.src} alt="" loading="lazy" />
+              <div className="foto-card">
+                <img src={foto.src} alt="" loading="lazy" />
+              </div>
             </FloatingElement>
           ))}
 

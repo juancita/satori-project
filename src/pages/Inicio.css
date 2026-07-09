@@ -11,12 +11,22 @@
   overflow: hidden;
 }
 
-/* Fotos flotantes de modelos */
+/* Fotos flotantes de modelos (grandes, en desorden, con blur al enfocar una) */
 .hero-foto {
-  border-radius: 8px;
-  overflow: hidden;
   pointer-events: auto;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+.hero-foto:hover {
+  z-index: 30;
+}
+
+/* Tarjeta interna: se rota/escala sin pelear con el parallax del contenedor */
+.foto-card {
+  border-radius: 10px;
+  overflow: hidden;
+  background: #141414;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), filter 0.4s ease, box-shadow 0.4s ease;
 }
 
 .hero-foto img {
@@ -25,23 +35,37 @@
   height: 100%;
   object-fit: cover;
   aspect-ratio: 3 / 4;
-  filter: grayscale(0.3);
-  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: grayscale(0.25);
+  transition: filter 0.4s ease;
 }
 
+/* Al enfocar (mouse/tap): se endereza, crece y pasa al frente */
+.hero-foto:hover .foto-card {
+  transform: rotate(0deg) scale(1.07);
+  box-shadow: 0 34px 90px rgba(0, 0, 0, 0.7);
+}
 .hero-foto:hover img {
-  transform: scale(1.06);
   filter: grayscale(0);
 }
 
-/* Posiciones (bordes, dejando libre el centro para el logo + texto).
-   Fotos grandes: son la presentación de las prendas, protagonistas. */
-.hero-foto--1 { top: 8%;  left: 2%;  width: 220px; }
-.hero-foto--2 { top: 6%;  left: 74%; width: 235px; }
-.hero-foto--3 { top: 42%; left: 0.5%; width: 245px; }
-.hero-foto--4 { top: 44%; left: 80%; width: 235px; }
-.hero-foto--5 { top: 71%; left: 7%;  width: 210px; }
-.hero-foto--6 { top: 72%; left: 74%; width: 220px; }
+/* Las demás se difuminan para darle protagonismo a la enfocada */
+.hero:has(.hero-foto:hover) .hero-foto:not(:hover) .foto-card {
+  filter: blur(3px) brightness(0.55);
+}
+
+/* Posiciones grandes y en desorden (pueden montarse entre sí, nunca sobre el centro) */
+.hero-foto--1 { top: 5%;  left: -1%; width: 285px; }
+.hero-foto--2 { top: 9%;  left: 75%; width: 300px; }
+.hero-foto--3 { top: 39%; left: -3%; width: 300px; }
+.hero-foto--4 { top: 45%; left: 77%; width: 290px; }
+.hero-foto--5 { top: 69%; left: 3%;  width: 270px; }
+.hero-foto--6 { top: 71%; left: 74%; width: 285px; }
+.hero-foto--1 .foto-card { transform: rotate(-6deg); }
+.hero-foto--2 .foto-card { transform: rotate(5deg); }
+.hero-foto--3 .foto-card { transform: rotate(3deg); }
+.hero-foto--4 .foto-card { transform: rotate(-5deg); }
+.hero-foto--5 .foto-card { transform: rotate(7deg); }
+.hero-foto--6 .foto-card { transform: rotate(-4deg); }
 
 /* Bloque central (logo + texto + CTA) */
 .hero-centro-float {
@@ -293,14 +317,23 @@
   }
 
   .hero-logo {
-    width: 220px;
+    width: 200px;
   }
 
-  /* Fotos flotantes hacia las esquinas en móvil, un poco más grandes */
-  .hero-foto--1 { top: 4%;  left: 1%;  width: 120px; }
-  .hero-foto--2 { top: 3%;  left: 66%; width: 128px; }
-  .hero-foto--3 { top: 38%; left: -6%; width: 120px; }
-  .hero-foto--4 { top: 40%; left: 78%; width: 118px; }
-  .hero-foto--5 { top: 80%; left: 2%;  width: 112px; }
-  .hero-foto--6 { top: 82%; left: 70%; width: 118px; }
+  .hero h1 {
+    font-size: clamp(2.8rem, 13vw, 3.6rem);
+  }
+
+  .hero-sub {
+    font-size: 0.85rem;
+  }
+
+  /* En móvil las fotos van a las bandas de arriba y abajo (centro libre para
+     el logo/texto/botón), en desorden y sangrando por los bordes. */
+  .hero-foto--1 { top: 1%;  left: -9%;  width: 158px; }
+  .hero-foto--2 { top: 3%;  left: 42%;  width: 150px; }
+  .hero-foto--3 { top: 0%;  left: 73%;  width: 162px; }
+  .hero-foto--5 { top: 80%; left: -10%; width: 158px; }
+  .hero-foto--4 { top: 84%; left: 40%;  width: 150px; }
+  .hero-foto--6 { top: 81%; left: 72%;  width: 162px; }
 }

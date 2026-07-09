@@ -186,10 +186,11 @@
 }
 
 .taller-pieza {
-  border-radius: 8px;
-  overflow: hidden;
   pointer-events: auto;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+.taller-pieza:hover {
+  z-index: 30;
 }
 
 .taller-pieza img {
@@ -198,21 +199,37 @@
   height: 100%;
   object-fit: cover;
   aspect-ratio: 3 / 4;
-  filter: grayscale(0.25);
-  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: grayscale(0.2);
+  transition: filter 0.4s ease;
 }
 
+/* Al enfocar (mouse/tap): se endereza, crece y pasa al frente */
+.taller-pieza:hover .foto-card {
+  transform: rotate(0deg) scale(1.07);
+  box-shadow: 0 34px 90px rgba(0, 0, 0, 0.7);
+}
 .taller-pieza:hover img {
-  transform: scale(1.06);
   filter: grayscale(0);
 }
 
-.taller-pieza--1 { top: 8%;  left: 3%;  width: 210px; }
-.taller-pieza--2 { top: 6%;  left: 75%; width: 225px; }
-.taller-pieza--3 { top: 43%; left: 0.5%; width: 235px; }
-.taller-pieza--4 { top: 45%; left: 79%; width: 225px; }
-.taller-pieza--5 { top: 71%; left: 8%;  width: 205px; }
-.taller-pieza--6 { top: 72%; left: 74%; width: 215px; }
+/* Las demás se difuminan para darle protagonismo a la enfocada */
+.taller-piezas:has(.taller-pieza:hover) .taller-pieza:not(:hover) .foto-card {
+  filter: blur(3px) brightness(0.55);
+}
+
+/* Posiciones grandes y en desorden (pueden montarse, nunca sobre el centro) */
+.taller-pieza--1 { top: 5%;  left: -1%; width: 275px; }
+.taller-pieza--2 { top: 9%;  left: 76%; width: 290px; }
+.taller-pieza--3 { top: 39%; left: -3%; width: 290px; }
+.taller-pieza--4 { top: 45%; left: 78%; width: 280px; }
+.taller-pieza--5 { top: 69%; left: 4%;  width: 260px; }
+.taller-pieza--6 { top: 71%; left: 74%; width: 275px; }
+.taller-pieza--1 .foto-card { transform: rotate(5deg); }
+.taller-pieza--2 .foto-card { transform: rotate(-6deg); }
+.taller-pieza--3 .foto-card { transform: rotate(-3deg); }
+.taller-pieza--4 .foto-card { transform: rotate(6deg); }
+.taller-pieza--5 .foto-card { transform: rotate(-7deg); }
+.taller-pieza--6 .foto-card { transform: rotate(4deg); }
 
 .taller-piezas-centro-float {
   inset: 0;
@@ -282,11 +299,12 @@
     margin: 0 auto;
   }
 
-  /* Piezas flotantes hacia las esquinas en móvil */
-  .taller-pieza--1 { top: 4%;  left: 1%;  width: 118px; }
-  .taller-pieza--2 { top: 3%;  left: 66%; width: 126px; }
-  .taller-pieza--3 { top: 38%; left: -6%; width: 118px; }
-  .taller-pieza--4 { top: 40%; left: 78%; width: 116px; }
-  .taller-pieza--5 { top: 80%; left: 2%;  width: 110px; }
-  .taller-pieza--6 { top: 82%; left: 70%; width: 116px; }
+  /* En móvil, piezas en las bandas de arriba y abajo (centro libre para el
+     botón/info), en desorden y sangrando por los bordes. */
+  .taller-pieza--1 { top: 1%;  left: -9%;  width: 156px; }
+  .taller-pieza--2 { top: 3%;  left: 42%;  width: 148px; }
+  .taller-pieza--3 { top: 0%;  left: 73%;  width: 160px; }
+  .taller-pieza--5 { top: 80%; left: -10%; width: 156px; }
+  .taller-pieza--4 { top: 84%; left: 40%;  width: 148px; }
+  .taller-pieza--6 { top: 81%; left: 72%;  width: 160px; }
 }

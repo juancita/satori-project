@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import Contacto from '../components/Contacto'
 import './Piezas.css'
 
 const NUMERO_WA = import.meta.env.VITE_WHATSAPP_NUMBER || '573153152807'
@@ -17,21 +17,8 @@ const PRENDAS = [
 ]
 
 export default function Piezas() {
-  const [i, setI] = useState(0)
-  const total = PRENDAS.length
-
-  const prev = useCallback(() => setI((n) => (n - 1 + total) % total), [total])
-  const next = useCallback(() => setI((n) => (n + 1) % total), [total])
-
-  // Flechas del teclado para navegar el carrusel.
-  useEffect(() => {
-    const onKey = (e) => {
-      if (e.key === 'ArrowLeft') prev()
-      else if (e.key === 'ArrowRight') next()
-    }
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [prev, next])
+  // Se duplica la lista para que la cinta se desplace en bucle sin cortes.
+  const cinta = [...PRENDAS, ...PRENDAS]
 
   return (
     <div className="piezas">
@@ -39,53 +26,21 @@ export default function Piezas() {
         <div className="container piezas-head">
           <p className="piezas-eyebrow">El Taller · Satori</p>
           <h1>Piezas terminadas</h1>
-          <p>Explora cada pieza en detalle. Usa las flechas para navegar.</p>
+          <p>Pasa el cursor (o toca) sobre una pieza para verla en detalle.</p>
         </div>
 
-        <div className="carrusel">
-          <button
-            className="carrusel-flecha carrusel-prev"
-            onClick={prev}
-            aria-label="Anterior"
-          >
-            ‹
-          </button>
-
-          <div className="carrusel-viewport">
-            <div
-              className="carrusel-track"
-              style={{ transform: `translateX(-${i * 100}%)` }}
-            >
-              {PRENDAS.map((src, idx) => (
-                <div className="carrusel-slide" key={src}>
-                  <img
-                    src={src}
-                    alt={`Pieza Satori ${idx + 1}`}
-                    loading={idx === 0 ? 'eager' : 'lazy'}
-                  />
-                </div>
-              ))}
-            </div>
+        <div className="marquesina">
+          <div className="marquesina-track">
+            {cinta.map((src, idx) => (
+              <div className="carta" key={idx}>
+                <img
+                  src={src}
+                  alt={`Pieza Satori ${(idx % PRENDAS.length) + 1}`}
+                  loading={idx < PRENDAS.length ? 'eager' : 'lazy'}
+                />
+              </div>
+            ))}
           </div>
-
-          <button
-            className="carrusel-flecha carrusel-next"
-            onClick={next}
-            aria-label="Siguiente"
-          >
-            ›
-          </button>
-        </div>
-
-        <div className="carrusel-dots">
-          {PRENDAS.map((src, idx) => (
-            <button
-              key={src}
-              className={'carrusel-dot' + (idx === i ? ' is-activo' : '')}
-              onClick={() => setI(idx)}
-              aria-label={`Ir a la pieza ${idx + 1}`}
-            />
-          ))}
         </div>
       </section>
 
@@ -104,6 +59,9 @@ export default function Piezas() {
           </a>
         </div>
       </section>
+
+      {/* ── Redes sociales ── */}
+      <Contacto />
     </div>
   )
 }

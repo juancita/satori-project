@@ -98,7 +98,9 @@ export default function Inicio() {
               depth={foto.depth}
               className={`hero-foto ${foto.clase}`}
             >
-              <img src={foto.src} alt="" loading="lazy" />
+              <div className="foto-card">
+                <img src={foto.src} alt="" loading="lazy" />
+              </div>
             </FloatingElement>
           ))}
 
