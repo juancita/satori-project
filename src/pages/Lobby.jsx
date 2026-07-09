@@ -59,7 +59,7 @@ export default function Lobby() {
       <div className="lobby-inner">
         <div className="lobby-logo-wrap">
           <img
-            src="/logo-inicio.PNG"
+            src="/logo-inicio.png"
             alt="Satori"
             className="lobby-logo"
           />
