@@ -46,8 +46,11 @@
 
 .social-card:hover {
   transform: scale(1.02);
+  /* Gris un poco más claro (no blanco) para que la animación se note más */
+  background: linear-gradient(145deg, #242424 0%, #141414 100%);
+  border-color: #3a3a3a;
   box-shadow:
-    0 0 80px rgba(255, 255, 255, 0.08),
+    0 0 90px rgba(255, 255, 255, 0.13),
     0 24px 70px rgba(0, 0, 0, 0.7);
 }
 

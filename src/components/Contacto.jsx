@@ -10,11 +10,8 @@ export default function Contacto() {
     <section className="contacto" id="contacto">
       <div className="container contacto-inner">
         <div className="contacto-head">
-          <h2>Conecta<br />con nosotros</h2>
-          <p>
-            Escríbenos por WhatsApp o síguenos en Instagram para novedades,
-            lanzamientos y contenido exclusivo.
-          </p>
+          <h2>¿Listo para<br />vestirte bien?</h2>
+          <p>Escríbenos y te asesoramos.</p>
         </div>
 
         {/* Contenedor con glow — paleta del sitio (blanco/negro) */}
