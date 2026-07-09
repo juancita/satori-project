@@ -74,6 +74,8 @@
   align-items: center;
   justify-content: center;
   pointer-events: none;
+  /* Siempre por encima de las fotos (incluso la enfocada, que llega a z-index 30) */
+  z-index: 50;
 }
 
 .hero-centro {
@@ -110,9 +112,17 @@
 
 .hero-sub {
   font-size: 1rem;
-  color: #999;
+  color: #cfcfcf;
   margin-bottom: 2.5rem;
   line-height: 1.7;
+  /* Borde negro sutil: no se nota sobre el fondo, pero mantiene legible la
+     frase si una foto (con fondo claro) queda detrás al agrandarse. */
+  text-shadow:
+    -1px -1px 0 rgba(0, 0, 0, 0.85),
+     1px -1px 0 rgba(0, 0, 0, 0.85),
+    -1px  1px 0 rgba(0, 0, 0, 0.85),
+     1px  1px 0 rgba(0, 0, 0, 0.85),
+     0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 .btn-catalogo {

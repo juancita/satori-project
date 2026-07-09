@@ -237,6 +237,8 @@
   align-items: center;
   justify-content: center;
   pointer-events: none;
+  /* Siempre por encima de las piezas (incluso la enfocada, z-index 30) */
+  z-index: 50;
 }
 
 .taller-piezas-centro {
@@ -254,10 +256,17 @@
 }
 
 .taller-piezas-centro p {
-  color: #aaa;
+  color: #cfcfcf;
   font-size: 1rem;
   line-height: 1.7;
   margin-bottom: 2.25rem;
+  /* Borde negro sutil para que la frase no se pierda si una foto queda detrás */
+  text-shadow:
+    -1px -1px 0 rgba(0, 0, 0, 0.85),
+     1px -1px 0 rgba(0, 0, 0, 0.85),
+    -1px  1px 0 rgba(0, 0, 0, 0.85),
+     1px  1px 0 rgba(0, 0, 0, 0.85),
+     0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 /* ── CTA final ── */

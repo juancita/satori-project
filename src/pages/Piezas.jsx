@@ -1,3 +1,4 @@
+import { useRef } from 'react'
 import Contacto from '../components/Contacto'
 import './Piezas.css'
 
@@ -19,6 +20,27 @@ const PRENDAS = [
 export default function Piezas() {
   // Se duplica la lista para que la cinta se desplace en bucle sin cortes.
   const cinta = [...PRENDAS, ...PRENDAS]
+  const contRef = useRef(null)
+  const shiftRef = useRef(null)
+
+  // Al enfocar una pieza que está a medias en un borde, se corre la cinta lo
+  // justo para que quede completamente visible donde está el mouse.
+  const revelar = (e) => {
+    const cont = contRef.current
+    const shift = shiftRef.current
+    if (!cont || !shift) return
+    const cr = cont.getBoundingClientRect()
+    const card = e.currentTarget.getBoundingClientRect()
+    const margen = cr.width * 0.09 // margen para librar el difuminado de los bordes
+    let delta = 0
+    if (card.left < cr.left + margen) delta = cr.left + margen - card.left
+    else if (card.right > cr.right - margen) delta = cr.right - margen - card.right
+    shift.style.transform = `translateX(${delta}px)`
+  }
+
+  const reset = () => {
+    if (shiftRef.current) shiftRef.current.style.transform = 'translateX(0)'
+  }
 
   return (
     <div className="piezas">
@@ -29,17 +51,24 @@ export default function Piezas() {
           <p>Pasa el cursor (o toca) sobre una pieza para verla en detalle.</p>
         </div>
 
-        <div className="marquesina">
-          <div className="marquesina-track">
-            {cinta.map((src, idx) => (
-              <div className="carta" key={idx}>
-                <img
-                  src={src}
-                  alt={`Pieza Satori ${(idx % PRENDAS.length) + 1}`}
-                  loading={idx < PRENDAS.length ? 'eager' : 'lazy'}
-                />
-              </div>
-            ))}
+        <div className="marquesina" ref={contRef}>
+          <div className="marquesina-shift" ref={shiftRef}>
+            <div className="marquesina-track">
+              {cinta.map((src, idx) => (
+                <div
+                  className="carta"
+                  key={idx}
+                  onMouseEnter={revelar}
+                  onMouseLeave={reset}
+                >
+                  <img
+                    src={src}
+                    alt={`Pieza Satori ${(idx % PRENDAS.length) + 1}`}
+                    loading={idx < PRENDAS.length ? 'eager' : 'lazy'}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

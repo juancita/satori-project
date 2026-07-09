@@ -46,6 +46,12 @@
   mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
 }
 
+/* Capa que se corre para revelar una pieza que quedó a medias en un borde */
+.marquesina-shift {
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
 .marquesina-track {
   display: flex;
   width: max-content;
