@@ -19,6 +19,8 @@
   width: 120px;   /* 120×120px — logo cuadrado prominente en el pie */
   height: auto;
   opacity: 0.9;
+  /* invert(1): logo negro sobre blanco → blanco sobre negro para el footer oscuro */
+  filter: invert(1);
   transition: opacity 0.3s;
 }
 
