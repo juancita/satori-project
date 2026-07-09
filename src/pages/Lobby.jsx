@@ -7,7 +7,7 @@ import './Lobby.css'
 // de la página principal, donde está el botón de WhatsApp (scrollContacto).
 const OPCIONES = [
   { label: 'Página Principal', to: '/inicio' },
-  { label: 'Catálogo', to: '/catalogo' },
+  { label: 'El Taller', to: '/taller' },
   { label: 'Contacto', to: '/inicio', scrollContacto: true },
 ]
 

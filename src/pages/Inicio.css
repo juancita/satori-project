@@ -136,6 +136,130 @@
   line-height: 1.65;
 }
 
+/* ── Vitrina en video ── */
+.vitrina {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.vitrina-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.vitrina-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(10,10,10,0.25) 0%, rgba(10,10,10,0.1) 40%, rgba(10,10,10,0.9) 100%);
+}
+
+.vitrina-content {
+  position: relative;
+  z-index: 2;
+  padding-bottom: 4rem;
+}
+
+.vitrina-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-size: 0.72rem;
+  color: #ccc;
+  margin-bottom: 1rem;
+}
+
+.vitrina-content h2 {
+  font-size: clamp(2.2rem, 6vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+  margin-bottom: 1.75rem;
+}
+
+.vitrina-cta {
+  display: inline-block;
+  background: #fff;
+  color: #0a0a0a;
+  text-decoration: none;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  padding: 1rem 2.4rem;
+  border-radius: 2px;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.vitrina-cta:hover {
+  transform: translateY(-3px);
+  background: #e8e8e8;
+}
+
+/* ── Lookbook: modelos ── */
+.lookbook {
+  padding: 7rem 0;
+}
+
+.lookbook-intro {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.lookbook-intro h2 {
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.75rem;
+}
+
+.lookbook-intro p {
+  color: #888;
+  font-size: 0.95rem;
+}
+
+.lookbook-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  align-items: start;
+}
+
+.lookbook-item {
+  border-radius: 10px;
+  overflow: hidden;
+  background: #141414;
+}
+
+.lookbook-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  aspect-ratio: 3 / 4;
+  transition: transform 0.5s ease, filter 0.5s ease;
+  filter: grayscale(0.15);
+}
+
+.lookbook-item--tall img {
+  aspect-ratio: 3 / 5;
+}
+
+.lookbook-item:hover img {
+  transform: scale(1.04);
+  filter: grayscale(0);
+}
+
 /* ── Contacto: estilos en components/Contacto.css ── */
 
 /* ── Responsive ── */
@@ -157,5 +281,9 @@
   .features-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
+  }
+
+  .lookbook-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }

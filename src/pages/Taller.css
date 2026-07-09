@@ -1,0 +1,248 @@
+.taller {
+  background-color: #0a0a0a;
+  color: #fff;
+}
+
+/* Video de fondo: filtro gris tenue, mantiene algo de color, sin perderlo del todo */
+.taller-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(0.55) brightness(0.62) contrast(1.05);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ── Hero ── */
+.taller-hero {
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.taller-hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(180deg, rgba(10, 10, 10, 0.55) 0%, rgba(10, 10, 10, 0.35) 45%, rgba(10, 10, 10, 0.9) 100%);
+}
+
+.taller-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 760px;
+}
+
+.taller-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-size: 0.75rem;
+  color: #bbb;
+  margin-bottom: 1.5rem;
+}
+
+.taller-hero-content h1 {
+  font-size: clamp(2.8rem, 8vw, 6rem);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.75rem;
+}
+
+.taller-sub {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: #cfcfcf;
+  line-height: 1.6;
+  max-width: 34rem;
+  margin-bottom: 2.5rem;
+}
+
+/* CTA reutilizable */
+.taller-cta {
+  display: inline-block;
+  background: #fff;
+  color: #0a0a0a;
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  padding: 1.1rem 2.6rem;
+  border-radius: 2px;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.taller-cta:hover {
+  transform: translateY(-3px);
+  background: #e8e8e8;
+}
+
+/* ── Proceso ── */
+.taller-proceso {
+  padding: 7rem 0 3rem;
+}
+
+.taller-proceso-intro {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.taller-proceso-intro h2,
+.taller-collage-intro h2,
+.taller-final h2 {
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin-bottom: 1rem;
+}
+
+.taller-proceso-intro p,
+.taller-collage-intro p {
+  color: #888;
+  font-size: 0.98rem;
+  max-width: 30rem;
+  margin: 0 auto;
+}
+
+/* Cada paso: video a un lado, texto al otro */
+.taller-paso {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  gap: 0;
+  min-height: 460px;
+}
+
+.taller-paso--alt {
+  direction: rtl;
+}
+.taller-paso--alt > * {
+  direction: ltr;
+}
+
+.taller-paso-media {
+  position: relative;
+  overflow: hidden;
+  min-height: 460px;
+}
+
+.taller-paso-tint {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(10, 10, 10, 0.15), rgba(10, 10, 10, 0.45));
+}
+
+.taller-paso-texto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem clamp(1.5rem, 5vw, 5rem);
+}
+
+.taller-paso-num {
+  font-size: 0.85rem;
+  letter-spacing: 0.3em;
+  color: #666;
+  margin-bottom: 1.25rem;
+}
+
+.taller-paso-texto h3 {
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.25rem;
+}
+
+.taller-paso-texto p {
+  color: #a8a8a8;
+  font-size: 1.02rem;
+  line-height: 1.7;
+  max-width: 32rem;
+}
+
+/* ── Collage ── */
+.taller-collage {
+  padding: 7rem 0;
+  border-top: 1px solid #1a1a1a;
+}
+
+.taller-collage-intro {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+/* Masonry con CSS columns */
+.taller-collage-grid {
+  column-count: 3;
+  column-gap: 1rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.taller-collage-item {
+  break-inside: avoid;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #141414;
+}
+
+.taller-collage-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease, filter 0.5s ease;
+  filter: saturate(0.9);
+}
+
+.taller-collage-item:hover img {
+  transform: scale(1.04);
+  filter: saturate(1.05);
+}
+
+/* ── CTA final ── */
+.taller-final {
+  padding: 8rem 0;
+  text-align: center;
+  border-top: 1px solid #1a1a1a;
+}
+
+.taller-final p {
+  color: #888;
+  margin-bottom: 2.5rem;
+}
+
+/* ── Responsive ── */
+@media (max-width: 820px) {
+  .taller-paso,
+  .taller-paso--alt {
+    grid-template-columns: 1fr;
+    direction: ltr;
+  }
+
+  .taller-paso-media {
+    min-height: 300px;
+  }
+
+  .taller-paso-texto {
+    padding: 3rem 1.5rem;
+  }
+
+  .taller-collage-grid {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .taller-collage-grid {
+    column-count: 1;
+  }
+}

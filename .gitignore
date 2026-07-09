@@ -23,3 +23,6 @@ build/
 
 # Logs
 *.log
+
+# Originales pesados de media (usar public/media/ optimizado)
+public/mascontent/

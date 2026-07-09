@@ -10,7 +10,7 @@ export default function Navbar() {
         </Link>
         <ul className="navbar-menu">
           <li><Link to="/inicio">Inicio</Link></li>
-          <li><Link to="/catalogo">Catálogo</Link></li>
+          <li><Link to="/taller">El Taller</Link></li>
           <li><a href="/inicio#contacto">Contacto</a></li>
         </ul>
       </div>

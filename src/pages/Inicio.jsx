@@ -59,6 +59,26 @@ export default function Inicio() {
 
       <EstrellaDivisor />
 
+      {/* ── Vitrina en video (sudadre-satori-1) ── */}
+      <section className="vitrina">
+        <video
+          className="vitrina-video"
+          src="/sudadre-satori-1.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          aria-hidden="true"
+        />
+        <div className="vitrina-overlay" aria-hidden="true" />
+        <div className="container vitrina-content">
+          <p className="vitrina-eyebrow">Diseño propio</p>
+          <h2>Piezas que<br />hablan por ti.</h2>
+          <Link to="/taller" className="vitrina-cta">Conoce el taller</Link>
+        </div>
+      </section>
+
       {/* ── Features ── */}
       <section className="features">
         <div className="container">
@@ -75,6 +95,28 @@ export default function Inicio() {
               <h3>Atención Directa</h3>
               <p>Pedidos y consultas personalizadas por WhatsApp.</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Lookbook: modelos exhibiéndose ── */}
+      <section className="lookbook">
+        <div className="container lookbook-intro">
+          <h2>En la calle</h2>
+          <p>Así se lleva Satori.</p>
+        </div>
+        <div className="lookbook-grid">
+          <div className="lookbook-item lookbook-item--tall">
+            <img src="/media/modelo-mujer.jpg" alt="Modelo Satori" loading="lazy" />
+          </div>
+          <div className="lookbook-item">
+            <img src="/media/modelo-hombre.jpg" alt="Modelo Satori" loading="lazy" />
+          </div>
+          <div className="lookbook-item">
+            <img src="/media/modelo-mujer-2.jpg" alt="Modelo Satori" loading="lazy" />
+          </div>
+          <div className="lookbook-item lookbook-item--tall">
+            <img src="/media/modelo-mujer-3.jpg" alt="Modelo Satori" loading="lazy" />
           </div>
         </div>
       </section>
