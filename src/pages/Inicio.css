@@ -27,7 +27,7 @@
 }
 
 .hero-logo {
-  width: 260px;   /* Logo cuadrado 260×260px — gran impacto visual */
+  width: 360px;   /* Logo protagonista del hero — gran impacto visual */
   height: auto;
   opacity: 1;
   filter: drop-shadow(0 0 40px rgba(255,255,255,0.08));
@@ -169,7 +169,7 @@
   }
 
   .hero-logo {
-    width: 180px;
+    width: 240px;
   }
 
   .features-grid {

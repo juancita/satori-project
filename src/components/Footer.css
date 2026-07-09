@@ -16,7 +16,7 @@
 }
 
 .footer-logo {
-  width: 120px;   /* 120×120px — logo cuadrado prominente en el pie */
+  width: 170px;   /* Logo prominente en el pie */
   height: auto;
   opacity: 0.9;
   transition: opacity 0.3s;
