@@ -34,13 +34,14 @@
   filter: grayscale(0);
 }
 
-/* Posiciones (bordes, dejando libre el centro para el logo + texto) */
-.hero-foto--1 { top: 11%; left: 4%;  width: 140px; }
-.hero-foto--2 { top: 8%;  left: 79%; width: 155px; }
-.hero-foto--3 { top: 44%; left: 1%;  width: 165px; }
-.hero-foto--4 { top: 47%; left: 84%; width: 150px; }
-.hero-foto--5 { top: 70%; left: 11%; width: 135px; }
-.hero-foto--6 { top: 71%; left: 76%; width: 140px; }
+/* Posiciones (bordes, dejando libre el centro para el logo + texto).
+   Fotos grandes: son la presentación de las prendas, protagonistas. */
+.hero-foto--1 { top: 8%;  left: 2%;  width: 220px; }
+.hero-foto--2 { top: 6%;  left: 74%; width: 235px; }
+.hero-foto--3 { top: 42%; left: 0.5%; width: 245px; }
+.hero-foto--4 { top: 44%; left: 80%; width: 235px; }
+.hero-foto--5 { top: 71%; left: 7%;  width: 210px; }
+.hero-foto--6 { top: 72%; left: 74%; width: 220px; }
 
 /* Bloque central (logo + texto + CTA) */
 .hero-centro-float {
@@ -295,11 +296,11 @@
     width: 220px;
   }
 
-  /* Fotos flotantes más pequeñas y hacia las esquinas en móvil */
-  .hero-foto--1 { top: 5%;  left: 2%;  width: 88px; }
-  .hero-foto--2 { top: 4%;  left: 74%; width: 96px; }
-  .hero-foto--3 { top: 40%; left: -2%; width: 92px; }
-  .hero-foto--4 { top: 42%; left: 80%; width: 90px; }
-  .hero-foto--5 { top: 78%; left: 4%;  width: 86px; }
-  .hero-foto--6 { top: 80%; left: 74%; width: 88px; }
+  /* Fotos flotantes hacia las esquinas en móvil, un poco más grandes */
+  .hero-foto--1 { top: 4%;  left: 1%;  width: 120px; }
+  .hero-foto--2 { top: 3%;  left: 66%; width: 128px; }
+  .hero-foto--3 { top: 38%; left: -6%; width: 120px; }
+  .hero-foto--4 { top: 40%; left: 78%; width: 118px; }
+  .hero-foto--5 { top: 80%; left: 2%;  width: 112px; }
+  .hero-foto--6 { top: 82%; left: 70%; width: 118px; }
 }

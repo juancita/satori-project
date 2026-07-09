@@ -10,7 +10,7 @@ export default function Footer() {
 
       <nav className="footer-nav">
         <Link to="/inicio">Inicio</Link>
-        <Link to="/catalogo">Catálogo</Link>
+        <Link to="/taller">El Taller</Link>
         <a href="/inicio#contacto">Contacto</a>
       </nav>
 

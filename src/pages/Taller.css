@@ -176,45 +176,71 @@
   max-width: 32rem;
 }
 
-/* ── Collage ── */
-.taller-collage {
-  padding: 7rem 0;
+/* ── Piezas terminadas: showcase flotante (mismo diseño que el hero) ── */
+.taller-piezas {
+  position: relative;
+  min-height: 90vh;
+  overflow: hidden;
   border-top: 1px solid #1a1a1a;
+  background: #0a0a0a;
 }
 
-.taller-collage-intro {
+.taller-pieza {
+  border-radius: 8px;
+  overflow: hidden;
+  pointer-events: auto;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.taller-pieza img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 3 / 4;
+  filter: grayscale(0.25);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.taller-pieza:hover img {
+  transform: scale(1.06);
+  filter: grayscale(0);
+}
+
+.taller-pieza--1 { top: 8%;  left: 3%;  width: 210px; }
+.taller-pieza--2 { top: 6%;  left: 75%; width: 225px; }
+.taller-pieza--3 { top: 43%; left: 0.5%; width: 235px; }
+.taller-pieza--4 { top: 45%; left: 79%; width: 225px; }
+.taller-pieza--5 { top: 71%; left: 8%;  width: 205px; }
+.taller-pieza--6 { top: 72%; left: 74%; width: 215px; }
+
+.taller-piezas-centro-float {
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.taller-piezas-centro {
+  pointer-events: auto;
   text-align: center;
-  margin-bottom: 3.5rem;
-}
-
-/* Masonry con CSS columns */
-.taller-collage-grid {
-  column-count: 3;
-  column-gap: 1rem;
-  max-width: 1100px;
-  margin: 0 auto;
+  max-width: 560px;
   padding: 0 1.5rem;
 }
 
-.taller-collage-item {
-  break-inside: avoid;
-  margin-bottom: 1rem;
-  border-radius: 8px;
-  overflow: hidden;
-  background: #141414;
+.taller-piezas-centro h2 {
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.25rem;
 }
 
-.taller-collage-item img {
-  width: 100%;
-  height: auto;
-  display: block;
-  transition: transform 0.5s ease, filter 0.5s ease;
-  filter: saturate(0.9);
-}
-
-.taller-collage-item:hover img {
-  transform: scale(1.04);
-  filter: saturate(1.05);
+.taller-piezas-centro p {
+  color: #aaa;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 2.25rem;
 }
 
 /* ── CTA final ── */
@@ -256,13 +282,11 @@
     margin: 0 auto;
   }
 
-  .taller-collage-grid {
-    column-count: 2;
-  }
-}
-
-@media (max-width: 480px) {
-  .taller-collage-grid {
-    column-count: 1;
-  }
+  /* Piezas flotantes hacia las esquinas en móvil */
+  .taller-pieza--1 { top: 4%;  left: 1%;  width: 118px; }
+  .taller-pieza--2 { top: 3%;  left: 66%; width: 126px; }
+  .taller-pieza--3 { top: 38%; left: -6%; width: 118px; }
+  .taller-pieza--4 { top: 40%; left: 78%; width: 116px; }
+  .taller-pieza--5 { top: 80%; left: 2%;  width: 110px; }
+  .taller-pieza--6 { top: 82%; left: 70%; width: 116px; }
 }

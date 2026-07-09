@@ -1,4 +1,6 @@
 import { useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
+import Floating, { FloatingElement } from '../components/ParallaxFloating'
 import './Taller.css'
 
 const NUMERO_WA = import.meta.env.VITE_WHATSAPP_NUMBER || '573153152807'
@@ -58,14 +60,14 @@ const PASOS = [
   },
 ]
 
-const PRENDAS = [
-  '/media/prenda-1.jpg',
-  '/media/prenda-2.jpg',
-  '/media/prenda-3.jpg',
-  '/media/prenda-4.jpg',
-  '/media/prenda-5.jpg',
-  '/media/prenda-6.jpg',
-  '/media/prenda-7.jpg',
+// Fotos flotantes de las piezas terminadas (mismo diseño que el hero de Inicio).
+const PIEZAS_FOTOS = [
+  { src: '/media/prenda-1.jpg', depth: 0.6, clase: 'taller-pieza--1' },
+  { src: '/media/prenda-2.jpg', depth: 1, clase: 'taller-pieza--2' },
+  { src: '/media/prenda-3.jpg', depth: 2, clase: 'taller-pieza--3' },
+  { src: '/media/prenda-4.jpg', depth: 1.4, clase: 'taller-pieza--4' },
+  { src: '/media/prenda-5.jpg', depth: 2.6, clase: 'taller-pieza--5' },
+  { src: '/media/prenda-6.jpg', depth: 1.2, clase: 'taller-pieza--6' },
 ]
 
 export default function Taller() {
@@ -126,19 +128,27 @@ export default function Taller() {
         ))}
       </section>
 
-      {/* ── Collage de prendas terminadas ── */}
-      <section className="taller-collage">
-        <div className="container taller-collage-intro">
-          <h2>Piezas terminadas</h2>
-          <p>Una muestra de lo que hemos creado. La próxima puede ser tuya.</p>
-        </div>
-        <div className="taller-collage-grid">
-          {PRENDAS.map((src, i) => (
-            <div className="taller-collage-item" key={src}>
-              <img src={src} alt={`Prenda Satori ${i + 1}`} loading="lazy" />
-            </div>
+      {/* ── Piezas terminadas: showcase flotante + botón al carrusel ── */}
+      <section className="taller-piezas">
+        <Floating sensitivity={-1} easingFactor={0.06}>
+          {PIEZAS_FOTOS.map((foto) => (
+            <FloatingElement
+              key={foto.src}
+              depth={foto.depth}
+              className={`taller-pieza ${foto.clase}`}
+            >
+              <img src={foto.src} alt="" loading="lazy" />
+            </FloatingElement>
           ))}
-        </div>
+
+          <FloatingElement depth={0.4} className="taller-piezas-centro-float">
+            <div className="taller-piezas-centro">
+              <h2>Piezas terminadas</h2>
+              <p>Una muestra de lo que hemos creado. La próxima puede ser tuya.</p>
+              <Link to="/piezas" className="taller-cta">Ver las piezas</Link>
+            </div>
+          </FloatingElement>
+        </Floating>
       </section>
 
       {/* ── CTA final ── */}

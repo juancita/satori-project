@@ -4,6 +4,7 @@ import Footer from './components/Footer'
 import Lobby from './pages/Lobby'
 import Inicio from './pages/Inicio'
 import Taller from './pages/Taller'
+import Piezas from './pages/Piezas'
 import Catalogo from './pages/Catalogo'
 import DetalleProducto from './pages/DetalleProducto'
 
@@ -20,6 +21,7 @@ function Layout() {
         <Route path="/" element={<Lobby />} />
         <Route path="/inicio" element={<Inicio />} />
         <Route path="/taller" element={<Taller />} />
+        <Route path="/piezas" element={<Piezas />} />
         {/* Catálogo oculto por ahora del menú, pero la ruta sigue activa */}
         <Route path="/catalogo" element={<Catalogo />} />
         <Route path="/producto/:id" element={<DetalleProducto />} />
