@@ -38,7 +38,7 @@ export default function Inicio() {
         <div className="container hero-inner">
           <div className="hero-logo-wrap">
             <img
-              src="/logo-pagina-principal.png"
+              src="/logo-inicio.png"
               alt="Satori"
               className="hero-logo"
             />

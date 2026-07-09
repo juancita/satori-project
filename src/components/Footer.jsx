@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="footer-logo-wrap">
-        <img src="/logo-en-blanco.png" alt="Satori" className="footer-logo" />
+        <img src="/logo-inicio.png" alt="Satori" className="footer-logo" />
       </div>
 
       <nav className="footer-nav">

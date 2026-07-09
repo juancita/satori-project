@@ -84,7 +84,7 @@ export default function DetalleProducto() {
           {/* ── Columna derecha: Info ── */}
           <div className="detalle-info">
             <div className="detalle-header">
-              <img src="/logo-en-blanco.png" alt="Satori" className="detalle-logo" />
+              <img src="/logo-inicio.png" alt="Satori" className="detalle-logo" />
               <span className="detalle-categoria">Colección Satori</span>
             </div>
 
