@@ -144,6 +144,56 @@
   80% { transform: translateX(5px) rotate(5deg); }
 }
 
+/* ── Colaboraciones / correo ── */
+.contacto-colab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.contacto-colab-label {
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.68rem;
+  color: #777;
+}
+
+.contacto-colab-mail {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.05rem;
+  letter-spacing: 0.01em;
+  border-bottom: 1px solid #333;
+  padding-bottom: 2px;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.contacto-colab-mail:hover {
+  border-color: #fff;
+}
+
+.contacto-colab-btn {
+  display: inline-block;
+  margin-top: 0.4rem;
+  padding: 0.85rem 2rem;
+  border: 1px solid #333;
+  border-radius: 2px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.contacto-colab-btn:hover {
+  background: #fff;
+  border-color: #fff;
+  color: #0a0a0a;
+}
+
 /* ── Responsive ── */
 @media (max-width: 768px) {
   .contacto {

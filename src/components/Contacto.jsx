@@ -4,6 +4,12 @@ const NUMERO_WA = import.meta.env.VITE_WHATSAPP_NUMBER || '573153152807'
 const MENSAJE_WA = 'Hola, tengo una consulta sobre sus productos.'
 const URL_WA = `https://wa.me/${NUMERO_WA}?text=${encodeURIComponent(MENSAJE_WA)}`
 const URL_IG = 'https://www.instagram.com/satoriessence.co/'
+const EMAIL = 'satoriessence.co@gmail.com'
+const MAILTO = `mailto:${EMAIL}?subject=${encodeURIComponent(
+  'Colaboración con Satori'
+)}&body=${encodeURIComponent(
+  'Hola Satori,\n\nMe gustaría hablar sobre una posible colaboración.\n\n'
+)}`
 
 export default function Contacto({
   titulo = (
@@ -54,6 +60,13 @@ export default function Contacto({
               <span className="icon-label">Instagram</span>
             </a>
           </div>
+        </div>
+
+        {/* Colaboraciones / marcas / prensa — contacto por correo */}
+        <div className="contacto-colab">
+          <p className="contacto-colab-label">Colaboraciones · Marcas · Prensa</p>
+          <a href={MAILTO} className="contacto-colab-mail">{EMAIL}</a>
+          <a href={MAILTO} className="contacto-colab-btn">Escríbenos por correo</a>
         </div>
       </div>
     </section>
