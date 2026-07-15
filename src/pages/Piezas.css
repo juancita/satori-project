@@ -68,7 +68,43 @@
   mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
 }
 
-/* Cinta arrastrable: el desplazamiento (auto + arrastre) lo controla JS */
+/* Contenedor con flechas */
+.carrusel {
+  position: relative;
+}
+
+.carrusel-flecha {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 6;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(10, 10, 10, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #fff;
+  font-size: 1.9rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.carrusel-flecha--prev { left: 1rem; }
+.carrusel-flecha--next { right: 1rem; }
+
+.carrusel-flecha:hover {
+  background: #fff;
+  color: #0a0a0a;
+  border-color: #fff;
+}
+
+/* Cinta arrastrable: el desplazamiento (auto + arrastre + flechas) lo controla JS */
 .marquesina-track {
   display: flex;
   width: max-content;
@@ -104,15 +140,21 @@
   -webkit-user-drag: none;
 }
 
-/* Efecto baraja: la carta enfocada salta al frente y las demás se difuminan */
-.carta:hover {
-  transform: scale(1.14) translateY(-10px);
+/* Efecto baraja: SOLO cuando no se está arrastrando (para que el arrastre sea fluido) */
+.marquesina-track:not(.is-dragging) .carta:hover {
+  transform: scale(1.12) translateY(-10px);
   box-shadow: 0 40px 90px rgba(0, 0, 0, 0.75);
   z-index: 5;
 }
 
-.marquesina-track:hover .carta:not(:hover) {
-  filter: brightness(0.5) blur(1px);
+.marquesina-track:not(.is-dragging):hover .carta:not(:hover) {
+  filter: brightness(0.55);
+}
+
+/* Durante el arrastre: sin transiciones ni efectos = movimiento fluido */
+.marquesina-track.is-dragging .carta {
+  transition: none;
+  pointer-events: none;
 }
 
 @media (max-width: 768px) {
@@ -120,4 +162,12 @@
     width: 200px;
     margin-right: 1rem;
   }
+
+  .carrusel-flecha {
+    width: 42px;
+    height: 42px;
+    font-size: 1.5rem;
+  }
+  .carrusel-flecha--prev { left: 0.4rem; }
+  .carrusel-flecha--next { right: 0.4rem; }
 }
