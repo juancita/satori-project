@@ -1,0 +1,174 @@
+.opinar {
+  background-color: #0a0a0a;
+  color: #fff;
+  min-height: 80vh;
+}
+
+.opinar-inner {
+  max-width: 620px;
+  padding-top: 5rem;
+  padding-bottom: 6rem;
+}
+
+.opinar-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-size: 0.72rem;
+  color: #888;
+  margin-bottom: 1rem;
+}
+
+.opinar-inner h1 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin-bottom: 0.9rem;
+}
+
+.opinar-sub {
+  color: #999;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+}
+
+.opinar-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.opinar-campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.opinar-campo > span {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #aaa;
+}
+
+.opinar-campo input,
+.opinar-campo textarea {
+  background: #141414;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  color: #fff;
+  font: inherit;
+  font-size: 0.95rem;
+  padding: 0.9rem 1rem;
+  transition: border-color 0.2s ease;
+  resize: vertical;
+}
+
+.opinar-campo input::placeholder,
+.opinar-campo textarea::placeholder {
+  color: #555;
+}
+
+.opinar-campo input:focus,
+.opinar-campo textarea:focus {
+  outline: none;
+  border-color: #fff;
+}
+
+/* Estrellas */
+.opinar-estrellas {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.opinar-estrella {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 2.2rem;
+  line-height: 1;
+  color: #333;
+  padding: 0;
+  transition: color 0.15s ease, transform 0.15s ease;
+}
+
+.opinar-estrella:hover {
+  transform: scale(1.15);
+}
+
+.opinar-estrella.is-activa {
+  color: #fff;
+}
+
+/* Botón */
+.opinar-btn {
+  display: inline-block;
+  align-self: flex-start;
+  background: #fff;
+  color: #0a0a0a;
+  border: none;
+  text-decoration: none;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  padding: 1rem 2.4rem;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: transform 0.25s ease, background 0.25s ease, opacity 0.2s ease;
+}
+
+.opinar-btn:hover {
+  transform: translateY(-2px);
+  background: #e8e8e8;
+}
+
+.opinar-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.opinar-error {
+  color: #e07a7a;
+  font-size: 0.85rem;
+}
+
+/* Pantalla de gracias */
+.opinar-gracias {
+  max-width: 560px;
+  padding-top: 7rem;
+  padding-bottom: 8rem;
+  text-align: center;
+}
+
+.opinar-check {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1.75rem;
+  border-radius: 50%;
+  background: #fff;
+  color: #0a0a0a;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.opinar-gracias h1 {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+
+.opinar-gracias p {
+  color: #999;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+}
+
+.opinar-gracias .opinar-btn {
+  align-self: center;
+}

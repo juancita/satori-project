@@ -1,0 +1,109 @@
+.opiniones {
+  padding: 6rem 0;
+  border-top: 1px solid #1a1a1a;
+}
+
+.opiniones-head {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.opiniones-head h2 {
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.75rem;
+}
+
+.opiniones-head p {
+  color: #888;
+  font-size: 0.95rem;
+}
+
+.opiniones-vacio {
+  text-align: center;
+  color: #888;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  max-width: 34rem;
+  margin: 0 auto;
+}
+
+.opiniones-vacio a {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.opiniones-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.opinion-card {
+  background: linear-gradient(145deg, #161616 0%, #0d0d0d 100%);
+  border: 1px solid #232323;
+  border-radius: 14px;
+  padding: 1.75rem;
+}
+
+.op-estrellas {
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+.op-estrellas-llenas {
+  color: #fff;
+}
+
+.op-estrellas-vacias {
+  color: #333;
+}
+
+.opinion-texto {
+  color: #d8d8d8;
+  font-size: 1rem;
+  line-height: 1.65;
+  margin-bottom: 1.25rem;
+}
+
+.opinion-autor {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #888;
+}
+
+.opinion-autor span {
+  color: #555;
+}
+
+.opiniones-cta {
+  text-align: center;
+  margin-top: 3.5rem;
+}
+
+.opiniones-btn {
+  display: inline-block;
+  padding: 0.95rem 2.4rem;
+  border: 1px solid #333;
+  border-radius: 2px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.opiniones-btn:hover {
+  background: #fff;
+  border-color: #fff;
+  color: #0a0a0a;
+}

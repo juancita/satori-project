@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import Contacto from '../components/Contacto'
+import Opiniones from '../components/Opiniones'
 import './Piezas.css'
 
 const NUMERO_WA = import.meta.env.VITE_WHATSAPP_NUMBER || '573153152807'
@@ -148,6 +149,9 @@ export default function Piezas() {
           </div>
         </div>
       </section>
+
+      {/* ── Opiniones de clientes ── */}
+      <Opiniones />
 
       {/* ── CTA final (igual que en el Taller) ── */}
       <section className="taller-final">
